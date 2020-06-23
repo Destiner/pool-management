@@ -3,25 +3,21 @@ const ethers = require('ethers');
 
 const providerEndpoint = process.env.REACT_APP_RPC_URL_1;
 const provider = new ethers.providers.JsonRpcProvider(providerEndpoint);
-console.log('provider endpoint', providerEndpoint.substr(0, 30));
 
 async function validate() {
     await validateContractMetadata();
 }
 
 async function validateContractMetadata() {
-    console.log('get erc20 abi');
     const erc20AbiFilePath = './src/abi/TestToken.json';
     const erc20AbiFile = await fs.readFileSync(erc20AbiFilePath, 'utf8');
     const erc20Abi = JSON.parse(erc20AbiFile).abi;
-    console.log('get multicall abi');
     const multicallAddress = '0xeefBa1e63905eF1D7ACbA5a8513c70307C1cE441';
     const multicallAbiFilePath = './src/abi/Multicall.json';
     const multicallAbiFile = await fs.readFileSync(
         multicallAbiFilePath,
         'utf8'
     );
-    console.log('init multicall contract');
     const multicallAbi = JSON.parse(multicallAbiFile).abi;
     const multicall = new ethers.Contract(
         multicallAddress,
@@ -29,12 +25,10 @@ async function validateContractMetadata() {
         provider
     );
 
-    console.log('get deployed.json');
     const metadataFilePath = './src/deployed.json';
     const metadataFile = await fs.readFileSync(metadataFilePath, 'utf8');
     const metadata = JSON.parse(metadataFile);
 
-    console.log('init token list');
     const tokens = metadata['mainnet'].tokens.filter(
         token => token.address !== 'ether'
     );
@@ -42,7 +36,6 @@ async function validateContractMetadata() {
     const tokenCount = tokens.length;
     const erc20Interface = new ethers.utils.Interface(erc20Abi);
     // validate decimals
-    console.log('init decimal calls');
     const decimalCalls = [];
     tokenAddresses.forEach(value => {
         decimalCalls.push([
@@ -50,9 +43,7 @@ async function validateContractMetadata() {
             erc20Interface.functions.decimals.encode([]),
         ]);
     });
-    console.log('fetch decimals');
     const [, decimalResponse] = await multicall.aggregate(decimalCalls);
-    console.log('check decimals');
     for (let i = 0; i < tokenCount; i++) {
         const token = tokens[i];
         const decimalHex = decimalResponse[i];
@@ -63,7 +54,6 @@ async function validateContractMetadata() {
             console.log('Wrong decimals', i);
         }
     }
-    console.log('etc…');
     // validate symbol
     const symbolCalls = [];
     tokenAddresses.forEach(value => {
