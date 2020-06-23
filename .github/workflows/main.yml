@@ -22,7 +22,7 @@ jobs:
             - uses: actions/checkout@v2
             - name: Install modules
               run: yarn
-              env:
-                  REACT_APP_RPC_URL_1: ${{ secrets.INFURA_ENDPOINT }}
             - name: Validate data
               run: yarn validate
+              env:
+                  REACT_APP_RPC_URL_1: ${{ secrets.INFURA_ENDPOINT }}
