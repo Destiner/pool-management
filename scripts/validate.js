@@ -118,6 +118,7 @@ async function validateContractMetadata() {
         for (const error of errors) {
             console.log(error);
         }
+        process.exit(1);
     }
 }
 
