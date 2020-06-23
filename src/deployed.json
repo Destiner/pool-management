@@ -622,6 +622,15 @@
                 "chartColor": "#387080"
             },
             {
+                "symbol": "OCEAN",
+                "address": "0x985dd3D42De1e256d09e1c10F112bCCB8015AD41",
+                "decimals": 10,
+                "ticker": "",
+                "iconAddress": "0x985dd3D42De1e256d09e1c10F112bCCB8015AD41",
+                "precision": 2,
+                "chartColor": "#387080"
+            },
+            {
                 "symbol": "ETHRSIAPY2",
                 "address": "0x9f49ed43C90A540d1cF12f6170aCE8d0B88a14E6",
                 "decimals": 18,
