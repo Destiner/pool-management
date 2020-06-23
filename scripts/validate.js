@@ -4,6 +4,8 @@ const ethers = require('ethers');
 const providerEndpoint = process.env.REACT_APP_RPC_URL_1;
 const provider = new ethers.providers.JsonRpcProvider(providerEndpoint);
 
+const errors = [];
+
 async function validate() {
     await validateContractMetadata();
 }
@@ -51,7 +53,7 @@ async function validateContractMetadata() {
         const decimals = decimalNumber.toNumber();
         const tokenDecimals = token.decimals;
         if (decimals !== tokenDecimals) {
-            console.log('Wrong decimals', i);
+            errors.push(`Wrong decimals: ${token.address}`);
         }
     }
     // validate symbol
@@ -77,7 +79,9 @@ async function validateContractMetadata() {
             continue;
         }
         if (symbol !== tokenSymbol) {
-            console.log('Wrong symbol', tokenSymbol, symbol, token.address);
+            errors.push(
+                `Wrong symbol: ${tokenSymbol}, ${symbol}, ${token.address}`
+            );
         }
     }
     // validate address (checksum)
@@ -86,20 +90,28 @@ async function validateContractMetadata() {
         const tokenAddress = token.address;
         const tokenIconAddress = token.iconAddress;
         if (tokenAddress !== ethers.utils.getAddress(tokenAddress)) {
-            console.log('Address not checksummed', i, tokenAddress);
+            errors.push(`Address not checksummed: ${i}, ${tokenAddress}`);
         }
         if (
             tokenIconAddress !== '' &&
             (tokenIconAddress !== ethers.utils.getAddress(tokenAddress) ||
                 tokenIconAddress.toLowerCase() !== tokenAddress.toLowerCase())
         ) {
-            console.log('notok', i, tokenAddress, tokenIconAddress);
+            errors.push(
+                `Address mismatch: ${tokenAddress}, ${tokenIconAddress}`
+            );
         }
     }
 
     // validate token is erc20
     // validate coingecko price (is exists + is correct)
     // validate icon exists
+
+    if (errors.length !== 0) {
+        for (const error of errors) {
+            console.log(error);
+        }
+    }
 }
 
 validate();
