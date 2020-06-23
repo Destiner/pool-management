@@ -105,9 +105,6 @@ async function validateContractMetadata() {
         ) {
             console.log('notok', i, tokenAddress, tokenIconAddress);
         }
-        // if (tokenAddress.toLowerCase() !== tokenIconAddress.toLowerCase()) {
-
-        // }
     }
 
     // validate token is erc20
