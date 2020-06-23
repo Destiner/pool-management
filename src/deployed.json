@@ -167,7 +167,7 @@
                 "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
                 "decimals": 18,
                 "ticker": "WETH",
-                "iconAddress": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                "iconAddress": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
                 "precision": 4,
                 "chartColor": "#433455"
             },
@@ -176,7 +176,7 @@
                 "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
                 "decimals": 18,
                 "ticker": "DAI",
-                "iconAddress": "0x6b175474e89094c44da98b954eedeac495271d0f",
+                "iconAddress": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
                 "precision": 2,
                 "chartColor": "#5d6872"
             },
@@ -185,7 +185,7 @@
                 "address": "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2",
                 "decimals": 18,
                 "ticker": "MKR",
-                "iconAddress": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+                "iconAddress": "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2",
                 "precision": 4,
                 "chartColor": "#7e9e99"
             },
@@ -194,7 +194,7 @@
                 "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
                 "decimals": 6,
                 "ticker": "USDC",
-                "iconAddress": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                "iconAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
                 "precision": 2,
                 "chartColor": "#9d9f7f"
             },
@@ -257,7 +257,7 @@
                 "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
                 "decimals": 8,
                 "ticker": "BTC",
-                "iconAddress": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+                "iconAddress": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
                 "precision": 4,
                 "chartColor": "#68aca9"
             },
@@ -266,7 +266,7 @@
                 "address": "0x0D8775F648430679A709E98d2b0Cb6250d2887EF",
                 "decimals": 18,
                 "ticker": "BAT",
-                "iconAddress": "0x0d8775f648430679a709e98d2b0cb6250d2887ef",
+                "iconAddress": "0x0D8775F648430679A709E98d2b0Cb6250d2887EF",
                 "precision": 2,
                 "chartColor": "#be955c"
             },
@@ -302,7 +302,7 @@
                 "address": "0xE41d2489571d322189246DaFA5ebDe1F4699F498",
                 "decimals": 18,
                 "ticker": "ZRX",
-                "iconAddress": "0xe41d2489571d322189246dafa5ebde1f4699f498",
+                "iconAddress": "0xE41d2489571d322189246DaFA5ebDe1F4699F498",
                 "precision": 2,
                 "chartColor": "#9a4f50"
             },
